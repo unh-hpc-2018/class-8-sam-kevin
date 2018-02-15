@@ -16,14 +16,14 @@ main(int argc, char **argv)
   for (int i = 0; i < 3; i++) {
     MAT(A, i, i) = i + 1;
   }
-  struct vector *x = new vector(3, (double[3]) { 1., 2., 3. });
-  struct vector *y = new vector(3);
-  struct vector *y_ref = new vector(3, (double[3]) { 1., 4., 9. });
+  vector x(3, (double[3]) { 1., 2., 3. });
+  vector y(3);
+  vector y_ref(3, (double[3]) { 1., 4., 9. });
 
   matrix_print(A);
   printf("\n");
   
-  matrix_vector_mul(A, x, y);
+  matrix_vector_mul(A, &x, &y);
 
   std::cout << "result vector is y = " << y << std::endl;
 

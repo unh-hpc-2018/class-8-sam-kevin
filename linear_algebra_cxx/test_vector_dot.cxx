@@ -12,14 +12,11 @@
 int
 main(int argc, char **argv)
 {
-  struct vector *x = new vector(3, (double[3]) { 1., 2., 3. });
-  struct vector *y = new vector(3, (double[3]) { 2., 3., 4. });
+  vector x(3, (double[3]) { 1., 2., 3. });
+  vector y(3, (double[3]) { 2., 3., 4. });
 
-  printf("dot product is %g\n", dot(*x, *y));
-  assert(dot(*x, *y) == 20.);
-
-  delete x;
-  delete y;
+  printf("dot product is %g\n", dot(x, y));
+  assert(dot(x, y) == 20.);
 
   return 0;
 }
