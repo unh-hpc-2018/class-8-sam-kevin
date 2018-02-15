@@ -5,6 +5,41 @@
 #include <stdio.h>
 
 // ----------------------------------------------------------------------
+// vector::constructor
+//
+// construct a vector of length "n"
+
+vector::vector(int _n)
+{
+  n = _n;
+  vals = new double[n]{};
+}
+
+
+// ----------------------------------------------------------------------
+// vector::constructor
+//
+// construct a vector of length "n" and set values
+
+vector::vector(int _n, const double* vals)
+  : vector(_n)
+{
+  for (int i = 0; i < n; i++) {
+    VEC(this, i) = vals[i];
+  }
+}
+
+// ----------------------------------------------------------------------
+// vector::destructor
+//
+// construct a vector of length "n" and set values
+
+vector::~vector()
+{
+  free(vals);
+}
+
+// ----------------------------------------------------------------------
 // vector_create
 //
 // create a new vector of length "n"
@@ -12,11 +47,7 @@
 struct vector *
 vector_create(int n)
 {
-  vector *v = new vector;
-  v->n = n;
-  v->vals = (double *) calloc(n, sizeof(*v->vals));
-
-  return v;
+  return new vector(n);
 }
 
 // ----------------------------------------------------------------------
@@ -27,13 +58,7 @@ vector_create(int n)
 struct vector *
 vector_create_and_set(int n, const double *vals)
 {
-  struct vector *v = vector_create(n);
-
-  for (int i = 0; i < v->n; i++) {
-    VEC(v, i) = vals[i];
-  }
-
-  return v;
+  return new vector(n, vals);
 }
 
 // ----------------------------------------------------------------------
@@ -44,7 +69,6 @@ vector_create_and_set(int n, const double *vals)
 void
 vector_destroy(struct vector *v)
 {
-  free(v->vals);
   delete v;
 }
 

@@ -10,7 +10,12 @@
 // ----------------------------------------------------------------------
 // struct vector
 
-struct vector {
+struct vector
+{
+  vector(int _n);
+  vector(int _n, const double* vals);
+  ~vector();
+  
   double *vals;
   int n;
 };
