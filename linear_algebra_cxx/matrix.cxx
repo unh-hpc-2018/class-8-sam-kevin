@@ -5,31 +5,24 @@
 #include <stdio.h>
 
 // ----------------------------------------------------------------------
-// matrix_create
+// matrix::constructor
 //
 // create a new matrix of size "m" x "n"
 
-struct matrix *
-matrix_create(int m, int n)
+matrix::matrix(int _m, int _n)
+  : m(_m), n(_n)
 {
-  matrix *M = new matrix;
-  M->m = m;
-  M->n = n;
-  M->vals = (double *) calloc(m * n, sizeof(*M->vals));
-
-  return M;
+  vals = new double[m*n];
 }
 
 // ----------------------------------------------------------------------
-// matrix_destroy
+// matrix::destructor
 //
 // destroys (deallocates) the matrix "M"
 
-void
-matrix_destroy(struct matrix *M)
+matrix::~matrix()
 {
-  free(M->vals);
-  delete M;
+  delete[] vals;
 }
 
 // ----------------------------------------------------------------------

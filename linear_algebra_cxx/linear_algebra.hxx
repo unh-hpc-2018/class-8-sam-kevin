@@ -43,6 +43,9 @@ vector operator+(const vector& x, const vector& y);
 // struct matrix
 
 struct matrix {
+  matrix(int m, int n);
+  ~matrix();
+
   double *vals;
   int m, n;
 };
@@ -57,8 +60,6 @@ struct matrix {
 #define MAT(m, i, j) ((m)->vals[(i) * (m)->n + (j)])
 #endif
 
-struct matrix *matrix_create(int m, int n);
-void matrix_destroy(struct matrix *M);
 void matrix_print(struct matrix *M);
 void matrix_vector_mul(const struct matrix *A, const vector& x, vector& y);
 void matrix_matrix_mul(const struct matrix *A, const struct matrix *B, struct matrix *C);

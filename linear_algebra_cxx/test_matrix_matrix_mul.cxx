@@ -48,10 +48,10 @@ main(int argc, char **argv)
 {
   const int m = 500, n = 500, k = 200;
 
-  struct matrix *A = matrix_create(m, k);
-  struct matrix *B = matrix_create(k, n);
-  struct matrix *C = matrix_create(m, n);
-  struct matrix *C_ref = matrix_create(m, n);
+  matrix *A = new matrix(m, k);
+  matrix *B = new matrix(k, n);
+  matrix *C = new matrix(m, n);
+  matrix *C_ref = new matrix(m, n);
 
   // build a test matrix
   setup_test_matrices(A, B, C_ref);
@@ -68,10 +68,10 @@ main(int argc, char **argv)
   //  assert(matrix_is_equal(C, C_ref));
 
   // clean up
-  matrix_destroy(A);
-  matrix_destroy(B);
-  matrix_destroy(C);
-  matrix_destroy(C_ref);
+  delete A;
+  delete B;
+  delete C;
+  delete C_ref;
 
   return 0;
 }
