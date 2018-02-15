@@ -12,7 +12,7 @@
 struct matrix *
 matrix_create(int m, int n)
 {
-  struct matrix *M = (struct matrix *) malloc(sizeof(*M));
+  matrix *M = new matrix;
   M->m = m;
   M->n = n;
   M->vals = (double *) calloc(m * n, sizeof(*M->vals));
@@ -29,7 +29,7 @@ void
 matrix_destroy(struct matrix *M)
 {
   free(M->vals);
-  free(M);
+  delete M;
 }
 
 // ----------------------------------------------------------------------

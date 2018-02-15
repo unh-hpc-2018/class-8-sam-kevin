@@ -12,7 +12,7 @@
 struct vector *
 vector_create(int n)
 {
-  struct vector *v = (struct vector *) malloc(sizeof(*v));
+  vector *v = new vector;
   v->n = n;
   v->vals = (double *) calloc(n, sizeof(*v->vals));
 
@@ -45,7 +45,7 @@ void
 vector_destroy(struct vector *v)
 {
   free(v->vals);
-  free(v);
+  delete v;
 }
 
 // ----------------------------------------------------------------------
