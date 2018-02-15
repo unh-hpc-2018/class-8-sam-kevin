@@ -2,7 +2,8 @@
 #ifndef LINEAR_ALGEBRA_H
 #define LINEAR_ALGEBRA_H
 
-#include <stdbool.h>
+#include <iostream>
+
 #include <assert.h>
 
 //#define BOUNDS_CHECK
@@ -15,10 +16,14 @@ struct vector
   vector(int _n);
   vector(int _n, const double* vals);
   ~vector();
-  
+
+  bool operator==(const vector& other) const;
+
   double *vals;
   int n;
 };
+
+std::ostream& operator<<(std::ostream& os, const vector& v);
 
 #ifdef BOUNDS_CHECK
 #define VEC(v, i) (*({				\
@@ -31,8 +36,6 @@ struct vector
 
 double vector_dot(const struct vector *x, const struct vector *y);
 void vector_add(const struct vector *x, const struct vector *y, struct vector *z);
-bool vector_is_equal(const struct vector *x, const struct vector *y);
-void vector_print(struct vector *v);
 
 // ----------------------------------------------------------------------
 // struct matrix

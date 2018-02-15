@@ -25,12 +25,10 @@ main(int argc, char **argv)
   
   matrix_vector_mul(A, x, y);
 
-  printf("result vector is y = ");
-  vector_print(y);
-  printf("\n");
+  std::cout << "result vector is y = " << y << std::endl;
 
   // check result against reference result
-  assert(vector_is_equal(y, y_ref));
+  assert(y == y_ref);
 
   return 0;
 }

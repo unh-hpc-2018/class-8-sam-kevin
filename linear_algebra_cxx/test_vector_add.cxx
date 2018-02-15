@@ -19,12 +19,10 @@ main(int argc, char **argv)
 
   vector_add(x, y, z);
 
-  printf("sum vector is z = ");
-  vector_print(z);
-  printf("\n");
+  std::cout << "sum vector is z = " << z << std::endl;
 
   // check result agains reference result
-  assert(vector_is_equal(z, z_ref));
+  assert(z == z_ref);
 
   return 0;
 }

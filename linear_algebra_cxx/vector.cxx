@@ -42,28 +42,29 @@ vector::~vector()
 // ----------------------------------------------------------------------
 // vector_is_equal
 
-bool
-vector_is_equal(const struct vector *x, const struct vector *y)
+bool vector::operator==(const vector& other) const
 {
-  for (int i = 0; i < x->n; i++) {
-    if (VEC(x, i) != VEC(y, i)) {
+  for (int i = 0; i < n; i++) {
+    if (VEC(this, i) != VEC(&other, i)) {
       return false;
     }
   }
   return true;
 }
 
-// vector_print
+// ----------------------------------------------------------------------
+// operator<<
 //
-// prints vector "v" to stdout
+// prints vector "v"
 
-void
-vector_print(struct vector *v)
+std::ostream& operator<<(std::ostream& os, const vector& v)
 {
-  printf("[(#=%d)", v->n);
-  for (int i = 0; i < v->n; i++) {
-    printf(" %g", VEC(v, i));
+  os << "[(#=" << v.n << ")";
+  for (int i = 0; i < v.n; i++) {
+    os << " " << VEC(&v, i);
   }
-  printf("]");
+  os << "]";
+
+  return os;
 }
 
