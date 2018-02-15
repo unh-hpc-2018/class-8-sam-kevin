@@ -29,6 +29,20 @@ vector::vector(int n, const double* vals)
 }
 
 // ----------------------------------------------------------------------
+// vector::constructor from initializer list
+//
+// construct a vector of length "n" and set values
+
+vector::vector(std::initializer_list<double> l)
+  : vector(l.size())
+{
+  int i = 0;
+  for (double val : l) {
+    (*this)[i++] = val;
+  }  
+}
+
+// ----------------------------------------------------------------------
 // vector::destructor
 //
 // construct a vector of length "n" and set values

@@ -16,9 +16,8 @@ main(int argc, char **argv)
   for (int i = 0; i < 3; i++) {
     MAT(A, i, i) = i + 1;
   }
-  vector x(3, (double[3]) { 1., 2., 3. });
+  vector x{ 1., 2., 3. };
   vector y(3);
-  vector y_ref(3, (double[3]) { 1., 4., 9. });
 
   matrix_print(A);
   printf("\n");
@@ -28,7 +27,7 @@ main(int argc, char **argv)
   std::cout << "result vector is y = " << y << std::endl;
 
   // check result against reference result
-  assert(y == y_ref);
+  assert((y == vector{ 1., 4., 9. }));
 
   return 0;
 }

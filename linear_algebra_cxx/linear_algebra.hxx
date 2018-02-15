@@ -3,6 +3,7 @@
 #define LINEAR_ALGEBRA_H
 
 #include <iostream>
+#include <initializer_list>
 
 #include <assert.h>
 
@@ -16,6 +17,7 @@ class vector
 public:
   vector(int n);
   vector(int n, const double* vals);
+  vector(std::initializer_list<double> l);
   ~vector();
 
   bool operator==(const vector& other) const;

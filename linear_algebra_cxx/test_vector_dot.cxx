@@ -12,8 +12,8 @@
 int
 main(int argc, char **argv)
 {
-  vector x(3, (double[3]) { 1., 2., 3. });
-  vector y(3, (double[3]) { 2., 3., 4. });
+  vector x{ 1., 2., 3. };
+  vector y{ 2., 3., 4. };
 
   printf("dot product is %g\n", dot(x, y));
   assert(dot(x, y) == 20.);
