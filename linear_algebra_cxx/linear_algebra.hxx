@@ -35,7 +35,7 @@ std::ostream& operator<<(std::ostream& os, const vector& v);
 #endif
 
 double dot(const vector& x, const vector& y);
-void vector_add(const struct vector *x, const struct vector *y, struct vector *z);
+vector operator+(const vector& x, const vector& y);
 
 // ----------------------------------------------------------------------
 // struct matrix

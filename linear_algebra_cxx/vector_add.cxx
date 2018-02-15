@@ -6,10 +6,13 @@
 //
 // calculate z = x + y, for the vectors x, y, z
 
-void
-vector_add(const struct vector *x, const struct vector *y, struct vector *z)
+vector operator+(const vector& x, const vector& y)
 {
-  for (int i = 0; i < x->n; i++) {
-    VEC(z, i) = VEC(x, i) + VEC(y, i);
+  assert(x.n == y.n);
+  vector z(x.n);
+  for (int i = 0; i < x.n; i++) {
+    VEC(&z, i) = VEC(&x, i) + VEC(&y, i);
   }
+
+  return z;
 }
