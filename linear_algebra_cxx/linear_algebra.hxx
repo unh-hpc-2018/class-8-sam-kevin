@@ -9,6 +9,12 @@
 
 //#define BOUNDS_CHECK
 
+// FIXME:
+// Let's put a big FIXME here: the default copy constructors on
+// vector and matrix will not do the right thing. The tests aren't
+// using them (at least not quite), so we're good for now, but
+// if this was to be seriously used, it'd definitely need fixing
+
 // ----------------------------------------------------------------------
 // struct vector
 

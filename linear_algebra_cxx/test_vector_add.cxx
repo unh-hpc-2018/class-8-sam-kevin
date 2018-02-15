@@ -19,7 +19,7 @@ main(int argc, char **argv)
 
   std::cout << "sum vector is z = " << z << std::endl;
 
-  // check result agains reference result
+  // check result against reference result
   assert((z == vector{ 3., 5., 7. }));
 
   return 0;
