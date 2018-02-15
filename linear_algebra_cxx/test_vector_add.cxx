@@ -12,10 +12,10 @@
 int
 main(int argc, char **argv)
 {
-  struct vector *x = vector_create_and_set(3, (double[3]) { 1., 2., 3. });
-  struct vector *y = vector_create_and_set(3, (double[3]) { 2., 3., 4. });
-  struct vector *z = vector_create(3);
-  struct vector *z_ref = vector_create_and_set(3, (double[3]) { 3., 5., 7. });
+  struct vector *x = new vector(3, (double[3]) { 1., 2., 3. });
+  struct vector *y = new vector(3, (double[3]) { 2., 3., 4. });
+  struct vector *z = new vector(3);
+  struct vector *z_ref = new vector(3, (double[3]) { 3., 5., 7. });
 
   vector_add(x, y, z);
 

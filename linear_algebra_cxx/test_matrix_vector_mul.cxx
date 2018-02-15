@@ -16,9 +16,9 @@ main(int argc, char **argv)
   for (int i = 0; i < 3; i++) {
     MAT(A, i, i) = i + 1;
   }
-  struct vector *x = vector_create_and_set(3, (double[3]) { 1., 2., 3. });
-  struct vector *y = vector_create(3);
-  struct vector *y_ref = vector_create_and_set(3, (double[3]) { 1., 4., 9. });
+  struct vector *x = new vector(3, (double[3]) { 1., 2., 3. });
+  struct vector *y = new vector(3);
+  struct vector *y_ref = new vector(3, (double[3]) { 1., 4., 9. });
 
   matrix_print(A);
   printf("\n");

@@ -40,39 +40,6 @@ vector::~vector()
 }
 
 // ----------------------------------------------------------------------
-// vector_create
-//
-// create a new vector of length "n"
-
-struct vector *
-vector_create(int n)
-{
-  return new vector(n);
-}
-
-// ----------------------------------------------------------------------
-// vector_create_and_set
-//
-// create a new vector of length "n", and set the values from "vals"
-
-struct vector *
-vector_create_and_set(int n, const double *vals)
-{
-  return new vector(n, vals);
-}
-
-// ----------------------------------------------------------------------
-// vector_destroy
-//
-// destroys (deallocates) the vector "v"
-
-void
-vector_destroy(struct vector *v)
-{
-  delete v;
-}
-
-// ----------------------------------------------------------------------
 // vector_is_equal
 
 bool
