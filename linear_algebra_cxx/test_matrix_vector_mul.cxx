@@ -19,8 +19,7 @@ main(int argc, char **argv)
   vector x{ 1., 2., 3. };
   vector y(3);
 
-  matrix_print(A);
-  printf("\n");
+  std::cout << "A = " << A << std::endl;
   
   matrix_vector_mul(A, x, y);
 

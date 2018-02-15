@@ -55,7 +55,8 @@ struct matrix {
   int m, n;
 };
 
-void matrix_print(matrix& M);
+std::ostream& operator<<(std::ostream& os, const matrix& v);
+
 void matrix_vector_mul(const matrix& A, const vector& x, vector& y);
 void matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C);
 

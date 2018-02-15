@@ -52,20 +52,20 @@ int matrix::index(int i, int j) const
 }
 
 // ----------------------------------------------------------------------
-// matrix_print
+// operator<<
 //
-// prints matrix "M" to stdout
+// prints matrix
 
-void
-matrix_print(matrix& M)
+std::ostream& operator<<(std::ostream& os, const matrix& M)
 {
-  printf("[(#=%dx%d)", M.m, M.n);
+  os << "[(#=" << M.m << "x" << M.n << ")";
   for (int i = 0; i < M.m; i++) {
-    printf(" {");
+    os << " {";
     for (int j = 0; j < M.n; j++) {
-      printf(" %g", M(i, j));
+      os << " " << M(i, j);
     }
-    printf(" }");
+    os << " }";
   }
-  printf("]");
+  os << "]";
+  return os;
 }
