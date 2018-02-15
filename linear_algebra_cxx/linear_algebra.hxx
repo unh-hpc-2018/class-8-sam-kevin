@@ -11,8 +11,9 @@
 // ----------------------------------------------------------------------
 // struct vector
 
-struct vector
+class vector
 {
+public:
   vector(int _n);
   vector(int _n, const double* vals);
   ~vector();
@@ -22,6 +23,9 @@ struct vector
   double  operator[](int i) const;
   double& operator[](int i);
 
+  int size() const;
+
+private:
   int check_index(int i) const;
   
   double *vals;

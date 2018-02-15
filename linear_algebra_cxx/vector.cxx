@@ -58,8 +58,8 @@ bool vector::operator==(const vector& other) const
 
 std::ostream& operator<<(std::ostream& os, const vector& v)
 {
-  os << "[(#=" << v.n << ")";
-  for (int i = 0; i < v.n; i++) {
+  os << "[(#=" << v.size() << ")";
+  for (int i = 0; i < v.size(); i++) {
     os << " " << v[i];
   }
   os << "]";
@@ -91,5 +91,14 @@ int vector::check_index(int i) const
 #endif
   return i;
 }
-  
+
+// ----------------------------------------------------------------------
+// size()
+//
+// returns # of elements in vector
+
+int vector::size() const
+{
+  return n;
+}
 
