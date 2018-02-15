@@ -12,9 +12,9 @@
 
 double dot(const struct vector& x, const struct vector& y)
 {
-  double sum = 0.f;
+  double sum = 0.;
   for (int i = 0; i < x.n; i++) {
-    sum += VEC(&x, i) * VEC(&y, i);
+    sum += x[i] * y[i];
   }
   return sum;
 }

@@ -15,7 +15,6 @@ vector::vector(int _n)
   vals = new double[n]{};
 }
 
-
 // ----------------------------------------------------------------------
 // vector::constructor
 //
@@ -25,7 +24,7 @@ vector::vector(int _n, const double* vals)
   : vector(_n)
 {
   for (int i = 0; i < n; i++) {
-    VEC(this, i) = vals[i];
+    (*this)[i] = vals[i];
   }
 }
 
@@ -40,12 +39,12 @@ vector::~vector()
 }
 
 // ----------------------------------------------------------------------
-// vector_is_equal
+// operator==
 
 bool vector::operator==(const vector& other) const
 {
   for (int i = 0; i < n; i++) {
-    if (VEC(this, i) != VEC(&other, i)) {
+    if ((*this)[i] != other[i]) {
       return false;
     }
   }
@@ -61,10 +60,36 @@ std::ostream& operator<<(std::ostream& os, const vector& v)
 {
   os << "[(#=" << v.n << ")";
   for (int i = 0; i < v.n; i++) {
-    os << " " << VEC(&v, i);
+    os << " " << v[i];
   }
   os << "]";
 
   return os;
 }
+
+// ----------------------------------------------------------------------
+// operator[]
+
+double vector::operator[](int i) const
+{
+  return vals[check_index(i)];
+}
+
+double& vector::operator[](int i)
+{
+  return vals[check_index(i)];
+}
+
+// ----------------------------------------------------------------------
+// check_index
+
+int vector::check_index(int i) const
+{
+#ifdef BOUNDS_CHECK
+  assert(i >= 0);
+  assert(i < n);
+#endif
+  return i;
+}
+  
 

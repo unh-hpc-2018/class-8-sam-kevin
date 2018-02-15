@@ -23,7 +23,7 @@ main(int argc, char **argv)
   matrix_print(A);
   printf("\n");
   
-  matrix_vector_mul(A, &x, &y);
+  matrix_vector_mul(A, x, y);
 
   std::cout << "result vector is y = " << y << std::endl;
 

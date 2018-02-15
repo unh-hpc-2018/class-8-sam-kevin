@@ -11,7 +11,7 @@ vector operator+(const vector& x, const vector& y)
   assert(x.n == y.n);
   vector z(x.n);
   for (int i = 0; i < x.n; i++) {
-    VEC(&z, i) = VEC(&x, i) + VEC(&y, i);
+    z[i] = x[i] + y[i];
   }
 
   return z;

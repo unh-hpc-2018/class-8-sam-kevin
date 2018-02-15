@@ -19,20 +19,16 @@ struct vector
 
   bool operator==(const vector& other) const;
 
+  double  operator[](int i) const;
+  double& operator[](int i);
+
+  int check_index(int i) const;
+  
   double *vals;
   int n;
 };
 
 std::ostream& operator<<(std::ostream& os, const vector& v);
-
-#ifdef BOUNDS_CHECK
-#define VEC(v, i) (*({				\
-	assert((i) >= 0 && (i) < (v)->n);	\
-	&((v)->vals[(i)]);			\
-      }))
-#else
-#define VEC(v, i) ((v)->vals[i])
-#endif
 
 double dot(const vector& x, const vector& y);
 vector operator+(const vector& x, const vector& y);
@@ -58,7 +54,7 @@ struct matrix {
 struct matrix *matrix_create(int m, int n);
 void matrix_destroy(struct matrix *M);
 void matrix_print(struct matrix *M);
-void matrix_vector_mul(const struct matrix *A, const struct vector *x, struct vector *y);
+void matrix_vector_mul(const struct matrix *A, const vector& x, vector& y);
 void matrix_matrix_mul(const struct matrix *A, const struct matrix *B, struct matrix *C);
 
 // ----------------------------------------------------------------------
