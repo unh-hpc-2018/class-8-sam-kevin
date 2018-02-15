@@ -12,10 +12,10 @@
 struct matrix *
 matrix_create(int m, int n)
 {
-  struct matrix *M = malloc(sizeof(*M));
+  struct matrix *M = (struct matrix *) malloc(sizeof(*M));
   M->m = m;
   M->n = n;
-  M->vals = calloc(m * n, sizeof(*M->vals));
+  M->vals = (double *) calloc(m * n, sizeof(*M->vals));
 
   return M;
 }

@@ -12,9 +12,9 @@
 struct vector *
 vector_create(int n)
 {
-  struct vector *v = malloc(sizeof(*v));
+  struct vector *v = (struct vector *) malloc(sizeof(*v));
   v->n = n;
-  v->vals = calloc(n, sizeof(*v->vals));
+  v->vals = (double *) calloc(n, sizeof(*v->vals));
 
   return v;
 }
