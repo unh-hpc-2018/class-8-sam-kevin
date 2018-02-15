@@ -34,7 +34,7 @@ std::ostream& operator<<(std::ostream& os, const vector& v);
 #define VEC(v, i) ((v)->vals[i])
 #endif
 
-double vector_dot(const struct vector *x, const struct vector *y);
+double dot(const vector& x, const vector& y);
 void vector_add(const struct vector *x, const struct vector *y, struct vector *z);
 
 // ----------------------------------------------------------------------
