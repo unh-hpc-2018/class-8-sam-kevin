@@ -52,17 +52,17 @@ struct matrix {
 
 #ifdef BOUNDS_CHECK
 #define MAT(M, i, j) (*({						\
-	assert((i) >= 0 && (i) < (M)->m);				\
-	assert((j) >= 0 && (j) < (M)->n);				\
-	&((M)->vals[(i) * (M)->n + (j)]);				\
+	assert((i) >= 0 && (i) < (M).m);				\
+	assert((j) >= 0 && (j) < (M).n);				\
+	&((M).vals[(i) * (M).n + (j)]);					\
       })) 
 #else
-#define MAT(m, i, j) ((m)->vals[(i) * (m)->n + (j)])
+#define MAT(m, i, j) ((m).vals[(i) * (m).n + (j)])
 #endif
 
-void matrix_print(struct matrix *M);
-void matrix_vector_mul(const struct matrix *A, const vector& x, vector& y);
-void matrix_matrix_mul(const struct matrix *A, const struct matrix *B, struct matrix *C);
+void matrix_print(matrix& M);
+void matrix_vector_mul(const matrix& A, const vector& x, vector& y);
+void matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C);
 
 // ----------------------------------------------------------------------
 

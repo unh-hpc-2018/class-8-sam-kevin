@@ -12,7 +12,7 @@
 int
 main(int argc, char **argv)
 {
-  struct matrix *A = new matrix(3, 3);
+  matrix A(3, 3);
   for (int i = 0; i < 3; i++) {
     MAT(A, i, i) = i + 1;
   }

@@ -31,12 +31,12 @@ matrix::~matrix()
 // prints matrix "M" to stdout
 
 void
-matrix_print(struct matrix *M)
+matrix_print(matrix& M)
 {
-  printf("[(#=%dx%d)", M->m, M->n);
-  for (int i = 0; i < M->m; i++) {
+  printf("[(#=%dx%d)", M.m, M.n);
+  for (int i = 0; i < M.m; i++) {
     printf(" {");
-    for (int j = 0; j < M->n; j++) {
+    for (int j = 0; j < M.n; j++) {
       printf(" %g", MAT(M, i, j));
     }
     printf(" }");
