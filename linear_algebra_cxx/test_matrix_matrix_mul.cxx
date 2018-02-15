@@ -19,13 +19,13 @@ setup_test_matrices(matrix& A, matrix& B, matrix& C_ref)
   // the matrices are initialized to zero, so we only set the non-zero elements
   // on the diagonal
   for (int i = 0; i < std::min(A.m, A.n); i++) {
-    MAT(A, i, i) = i;
+    A(i, i) = i;
   }
   for (int i = 0; i < std::min(B.m, B.n); i++) {
-    MAT(B, i, i) = i;
+    B(i, i) = i;
   }
   for (int i = 0; i < std::min({C_ref.m, C_ref.n, A.n}); i++) {
-    MAT(C_ref, i, i) = i * i;
+    C_ref(i, i) = i * i;
   }
 }
 

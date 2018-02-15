@@ -46,19 +46,14 @@ struct matrix {
   matrix(int m, int n);
   ~matrix();
 
+  double  operator()(int i, int j) const;
+  double& operator()(int i, int j);
+
+  int index(int i, int j) const;
+  
   double *vals;
   int m, n;
 };
-
-#ifdef BOUNDS_CHECK
-#define MAT(M, i, j) (*({						\
-	assert((i) >= 0 && (i) < (M).m);				\
-	assert((j) >= 0 && (j) < (M).n);				\
-	&((M).vals[(i) * (M).n + (j)]);					\
-      })) 
-#else
-#define MAT(m, i, j) ((m).vals[(i) * (m).n + (j)])
-#endif
 
 void matrix_print(matrix& M);
 void matrix_vector_mul(const matrix& A, const vector& x, vector& y);

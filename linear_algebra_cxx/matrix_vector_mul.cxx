@@ -12,7 +12,7 @@ void matrix_vector_mul(const matrix& A, const vector& x, vector& y)
   for (int i = 0; i < A.m; i++) {
     y[i] = 0.;
     for (int j = 0; j < A.n; j++) {
-      y[i] += MAT(A, i, j) * x[j];
+      y[i] += A(i, j) * x[j];
     }
   }
 }

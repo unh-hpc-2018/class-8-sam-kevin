@@ -14,7 +14,7 @@ main(int argc, char **argv)
 {
   matrix A(3, 3);
   for (int i = 0; i < 3; i++) {
-    MAT(A, i, i) = i + 1;
+    A(i, i) = i + 1;
   }
   vector x{ 1., 2., 3. };
   vector y(3);
