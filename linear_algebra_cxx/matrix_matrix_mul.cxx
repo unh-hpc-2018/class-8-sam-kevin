@@ -1,5 +1,5 @@
 
-#include "linear_algebra.h"
+#include "linear_algebra.hxx"
 
 // ----------------------------------------------------------------------
 // matrix_matrix_mul
