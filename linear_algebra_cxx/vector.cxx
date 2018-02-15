@@ -9,10 +9,10 @@
 //
 // construct a vector of length "n"
 
-vector::vector(int _n)
+vector::vector(int n)
+  : n_(n)
 {
-  n = _n;
-  vals = new double[n]{};
+  vals_ = new double[n]{};
 }
 
 // ----------------------------------------------------------------------
@@ -20,10 +20,10 @@ vector::vector(int _n)
 //
 // construct a vector of length "n" and set values
 
-vector::vector(int _n, const double* vals)
-  : vector(_n)
+vector::vector(int n, const double* vals)
+  : vector(n)
 {
-  for (int i = 0; i < n; i++) {
+  for (int i = 0; i < n_; i++) {
     (*this)[i] = vals[i];
   }
 }
@@ -35,7 +35,7 @@ vector::vector(int _n, const double* vals)
 
 vector::~vector()
 {
-  free(vals);
+  delete[] vals_;
 }
 
 // ----------------------------------------------------------------------
@@ -43,7 +43,9 @@ vector::~vector()
 
 bool vector::operator==(const vector& other) const
 {
-  for (int i = 0; i < n; i++) {
+  assert(n_ == other.n_);
+  
+  for (int i = 0; i < n_; i++) {
     if ((*this)[i] != other[i]) {
       return false;
     }
@@ -72,12 +74,12 @@ std::ostream& operator<<(std::ostream& os, const vector& v)
 
 double vector::operator[](int i) const
 {
-  return vals[check_index(i)];
+  return vals_[check_index(i)];
 }
 
 double& vector::operator[](int i)
 {
-  return vals[check_index(i)];
+  return vals_[check_index(i)];
 }
 
 // ----------------------------------------------------------------------
@@ -99,6 +101,6 @@ int vector::check_index(int i) const
 
 int vector::size() const
 {
-  return n;
+  return n_;
 }
 

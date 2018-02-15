@@ -14,8 +14,8 @@
 class vector
 {
 public:
-  vector(int _n);
-  vector(int _n, const double* vals);
+  vector(int n);
+  vector(int n, const double* vals);
   ~vector();
 
   bool operator==(const vector& other) const;
@@ -28,8 +28,8 @@ public:
 private:
   int check_index(int i) const;
   
-  double *vals;
-  int n;
+  double *vals_;
+  int n_;
 };
 
 std::ostream& operator<<(std::ostream& os, const vector& v);
