@@ -57,8 +57,8 @@ struct matrix {
 
 std::ostream& operator<<(std::ostream& os, const matrix& v);
 
-void matrix_vector_mul(const matrix& A, const vector& x, vector& y);
-void matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C);
+vector operator*(const matrix& A, const vector& x);
+matrix operator*(const matrix& A, const matrix& B);
 
 // ----------------------------------------------------------------------
 

@@ -17,11 +17,10 @@ main(int argc, char **argv)
     A(i, i) = i + 1;
   }
   vector x{ 1., 2., 3. };
-  vector y(3);
 
   std::cout << "A = " << A << std::endl;
   
-  matrix_vector_mul(A, x, y);
+  vector y = A * x;
 
   std::cout << "result vector is y = " << y << std::endl;
 

@@ -9,16 +9,17 @@
 // B: 2nd input matrix (k x n matrix)
 // C: result (m x n matrix)
 
-void
-matrix_matrix_mul(const matrix& A, const matrix& B, matrix& C)
+matrix operator*(const matrix& A, const matrix& B)
 {
+  matrix C(A.m, B.n);
+
   for (int i = 0; i < C.m; i++) {
     for (int j = 0; j < C.n; j++) {
-      C(i, j) = 0.;
       for (int k = 0; k < C.m; k++) {
 	C(i, j) += A(i, k) * B(k, j);
       }
     }
   }
+  return C;
 }
 

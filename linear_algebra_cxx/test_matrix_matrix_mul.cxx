@@ -41,18 +41,15 @@ main(int argc, char **argv)
 
   matrix A(m, k);
   matrix B(k, n);
-  matrix C(m, n);
   matrix C_ref(m, n);
 
   // build a test matrix
   setup_test_matrices(A, B, C_ref);
 
   // calculate C = AB
-  matrix_matrix_mul(A, B, C);
+  matrix C = A * B;
 
-  /* printf("C = "); */
-  /* matrix_print(C); */
-  /* printf("\n"); */
+  // std::cout << "C = " << C << std::endl;
 
   // the resulting vector for this test should equal our reference result
   // FIXME, operator== is missing
