@@ -55,11 +55,5 @@ void matrix_destroy(struct matrix *M);
 void matrix_print(struct matrix *M);
 void matrix_vector_mul(const struct matrix *A, const struct vector *x, struct vector *y);
 void matrix_matrix_mul(const struct matrix *A, const struct matrix *B, struct matrix *C);
-
-// ----------------------------------------------------------------------
-
-#include <stdio.h>
-
-#define HERE fprintf(stderr, "HERE at %s:%d (%s)\n", __FILE__, __LINE__, __FUNCTION__) 
-
+bool matrix_is_equal(const struct matrix *A, const struct matrix *B);
 #endif
