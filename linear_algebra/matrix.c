@@ -50,3 +50,20 @@ matrix_print(struct matrix *M)
   }
   printf("]");
 }
+// ----------------------------------------------------------------------
+// vector_is_equal
+
+bool
+matrix_is_equal(const struct matrix *A, const struct matrix *B)
+{
+  for (int i = 0; i < A->m; i++) {
+    for (int j = 0; j< A->n;j++ )
+    {
+      if (MAT(A, i, j)!= MAT(B, i, j)) {
+        return false;
+      }
+    }
+
+  }
+  return true;
+}
